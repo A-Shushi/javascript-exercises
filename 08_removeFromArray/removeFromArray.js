@@ -1,7 +1,9 @@
 const removeFromArray = function (arrayValue, ...args) {
     for (let arg of args) {
-        let index = arrayValue.findIndex(element => element === arg)
-        arrayValue.splice(index, 1)
+        while (arrayValue.findIndex(element => element === arg) >= 0) {
+            let index = arrayValue.findIndex(element => element === arg)
+            arrayValue.splice(index, 1)
+        }
     }
     return arrayValue
 };
